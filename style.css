@@ -3,13 +3,29 @@
    flex-direction: row;
    justify-content: center;
 }
+image{
+    width: 100px;
+    height: auto;
+}
 button{
 width: 200px;
-height: 50px;
+height: 200px;
 border: 2px solid black;
 margin: 5px;
 border-radius: 10px;
 background-color: lightblue;
+}
+.button1{
+    background-image: url("images/rock.png");
+    background-size: 200px 200px;
+}
+.button2{
+    background-image: url("images/paper.png");
+    background-size: 200px 200px;
+}
+.button3{
+    background-image: url("images/scissors.png");
+    background-size: 200px 200px;
 }
 .scoreboard{
     text-align: center;

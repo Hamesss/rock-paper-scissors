@@ -1,12 +1,25 @@
+body{
+    background-color: #93b8c4;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #7FCBE5;
+    color: #444444;
+    font-family: "Arial", "Helvetica", "sans-serif";
+}
+.item-type{
+    text-align: center;
+    font-family: "Arial", "Helvetica", "sans-serif";
+}
 .buttons{
    display: flex; 
    flex-direction: row;
    justify-content: center;
 }
-image{
-    width: 100px;
-    height: auto;
-}
+
 button{
 width: 200px;
 height: 200px;
@@ -14,6 +27,7 @@ border: 2px solid black;
 margin: 5px;
 border-radius: 10px;
 background-color: lightblue;
+transition: all 0.1s;
 }
 .button1{
     background-image: url("images/rock.png");
@@ -27,10 +41,19 @@ background-color: lightblue;
     background-image: url("images/scissors.png");
     background-size: 200px 200px;
 }
-.scoreboard{
-    text-align: center;
+.clicked{
+    transform:scale(1.05);
+    border-color: #ffc600;
 }
+.player-score, .computer-score{
+    text-align: center;
+    font-family: "Arial", "Helvetica", "sans-serif";
+    font-size: 20px;
+}
+
 
 .game-result{
     text-align: center;
+    font-family: "Arial", "Helvetica", "sans-serif";
+    margin: 5px;
 }

@@ -1,6 +1,7 @@
 const btns = document.querySelectorAll("button");
 const gameResult = document.querySelector(".game-result");
-const scoreBoard = document.querySelector(".scoreboard");
+const playerScoreboard = document.querySelector(".player-score");
+const computerScoreboard = document.querySelector(".computer-score");
 let playerScore = 0;
 let computerScore = 0;
 let nextRound = true;
@@ -17,20 +18,31 @@ btns.forEach(button => {
         }
         else if(button.className == "button2"){
             displayResult.textContent = round("Paper", getComputerChoice());
+            
         }
         else if(button.className == "button3"){
             displayResult.textContent = round("Scissors", getComputerChoice());
         }
+        button.classList.add("clicked");
+        
         gameResult.appendChild(displayResult);
         findWinner();
-        scoreBoard.textContent = `Player score: ${playerScore} \nComputer score: ${computerScore}`;
+       
+        playerScoreboard.textContent = `Player score: ${playerScore}`;
+        computerScoreboard.textContent = `Computer score: ${computerScore}`;
     });
+    button.addEventListener("transitionend", removeTransition);
 });
+
+function removeTransition(e){
+    this.classList.remove("clicked");
+}
 
 function findWinner() {
     if (playerScore >= 5) {
         const showWinner = document.createElement("h1");
         showWinner.textContent = "Player wins!";
+        showWinner.style="color: green";
         gameResult.appendChild(showWinner);
         playerScore = 0;
         computerScore = 0;
@@ -38,7 +50,8 @@ function findWinner() {
 
     else if (computerScore >= 5) {
         const showWinner = document.createElement("h1");
-        showWinner.textContent = "Computer wins!";
+        showWinner.textContent = "Computer wins...";
+        showWinner.style="color: red";
         gameResult.appendChild(showWinner);
         playerScore = 0;
         computerScore = 0;   
@@ -84,6 +97,4 @@ function round(playerChoice, computerChoice) {
         return ("Not a valid input.");
     }
 }
-
-
 

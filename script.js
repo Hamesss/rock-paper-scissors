@@ -3,7 +3,7 @@ const gameResult = document.querySelector(".game-result");
 const scoreBoard = document.querySelector(".scoreboard");
 let playerScore = 0;
 let computerScore = 0;
-let nextRound = false;
+let nextRound = true;
 btns.forEach(button => {
 
     button.addEventListener("click", function (e) {
@@ -12,7 +12,15 @@ btns.forEach(button => {
             nextRound = false;
         }
         const displayResult = document.createElement("div");
-        displayResult.textContent = round(button.textContent, getComputerChoice());
+        if(button.className == "button1"){
+            displayResult.textContent = round("Rock", getComputerChoice());
+        }
+        else if(button.className == "button2"){
+            displayResult.textContent = round("Paper", getComputerChoice());
+        }
+        else if(button.className == "button3"){
+            displayResult.textContent = round("Scissors", getComputerChoice());
+        }
         gameResult.appendChild(displayResult);
         findWinner();
         scoreBoard.textContent = `Player score: ${playerScore} \nComputer score: ${computerScore}`;
